@@ -16,7 +16,7 @@ namespace VisualTimer
 		//Here we can add the path to the program we want to track 
 		private string _processPath = @"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\devenv.exe";
 		//Here we can add the path where the data file will be stored
-		private string _saveFilePath = @"C:\Users\Vlados\Documents\time1.txt";
+		private string _saveFilePath = @"C:\Users\Vlados\Documents\time.txt";
 
         private string _globalTime = "00:00:00";
 
@@ -68,7 +68,9 @@ namespace VisualTimer
             File.WriteAllText(_saveFilePath, _globalTime);
 
             _sender.SendMessage(_timeSpan, _globalTime, _stopWatch);
-        }
+
+			_exitToken = false;
+		}
 
         private void Read()
         {
