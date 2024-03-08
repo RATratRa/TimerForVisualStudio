@@ -14,9 +14,9 @@ namespace VisualTimer
         private MessageSender _sender = new MessageSender();
 
 		//Here we can add the path to the program we want to track 
-		private string _processPath = @"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\devenv.exe";
+		private string _processPath;
 		//Here we can add the path where the data file will be stored
-		private string _saveFilePath = @"C:\Users\Vlados\Documents\time.txt";
+		private string _saveFilePath;
 
         private string _globalTime = "00:00:00";
 
@@ -25,6 +25,13 @@ namespace VisualTimer
         private int _seconds;
 
         private bool _exitToken = true;
+
+        public Timer(string processPath, string saveFilePath)
+        {
+            _processPath = processPath;
+            _saveFilePath = saveFilePath;
+        }
+
         public void Start()
         {
             if(!File.Exists(_saveFilePath)) 

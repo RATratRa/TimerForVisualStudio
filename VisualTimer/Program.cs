@@ -1,23 +1,19 @@
 ﻿namespace VisualTimer
 {
-    //      TODO
-    // Сейф в облаці 
-    // Коли був перший запуск mb
-    // Придумати як забезпечити файлик від змін
-    //
-    // 
-    // 
-    // 
-    //
-    internal class Program
-    {
-        static void Main()
-        {
-            Timer timer = new Timer();
+	internal class Program
+	{
+		static void Main()
+		{
+			//Here we can add the path to the program we want to track 
+			string processPath = @"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\devenv.exe";
+			//Here we can add the path where the data file will be stored
+			string saveFilePath = @"C:\Users\Vlados\Documents\time.txt";
 
-            timer.Start();
+			Timer timer = new Timer(processPath, saveFilePath);
 
-            timer.WaitForComplete();
-        }
-    }
+			timer.Start();
+
+			timer.WaitForComplete();
+		}
+	}
 }
