@@ -6,7 +6,7 @@ namespace VisualTimer
 {
 	internal class MessageSender
 	{
-
+		Copyright addString = new Copyright();
 		public void SendMessage(TimeSpan timeSpan, string globalTime, Stopwatch _stopWatch)
 		{
 			timeSpan = _stopWatch.Elapsed;
@@ -16,7 +16,8 @@ namespace VisualTimer
 
 			new ToastContentBuilder()
 			.AddArgument("action", "Visual Studio Timer")
-			.AddText("You're the best =)")
+			//.AddText("You're the best =)")
+			.AddText($"{addString.Author}")
 			.AddText($"You worked today for {localTime}")
 			.AddText($"General time {globalTime}")
 			.Schedule(DateTime.Now.AddSeconds(1));
